@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import centreImg from "@/assets/centre.jpg";
-import { Activity, Baby, Stethoscope, Scan, MapPin, Phone, Clock, Mail, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Activity, Baby, Stethoscope, Scan, MapPin, Phone, Clock, Mail, ShieldCheck, CheckCircle2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,7 +27,14 @@ const PHONE_TEL = "+917488738051";
 const MAP_QUERY = encodeURIComponent("APEX CT SCAN & MATERNITY CENTRE, Old SBI Gali, MG Road, Katihar, Bihar 854105");
 
 const SCAN_TYPES = [
-  "96 Slice CT Scan",
+  "CT Brain Plain (Contrast)",
+  "CT Whole Abdomen",
+  "CT Lower Abdomen",
+  "CT Upper Abdomen",
+  "HRCT Thorax",
+  "CT Urography",
+  "CT KUB",
+  "Any Special CT Scan",
   "3D / 4D Ultrasound",
   "Colour Doppler",
   "Digital X-Ray",
@@ -37,13 +45,25 @@ function Home() {
   const [form, setForm] = useState({ name: "", phone: "", age: "", gender: "", scan: SCAN_TYPES[0] });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const { error } = await supabase.from("bookings").insert({
+      name: form.name,
+      phone: form.phone,
+      age: Number(form.age),
+      gender: form.gender,
+      scan: form.scan,
+    });
+    if (error) {
+      alert("Could not save booking. Please call us at " + PHONE);
+      return;
+    }
+    setSubmitted(true);
     const msg = encodeURIComponent(
       `Hello, I would like to book a scan.\n\nName: ${form.name}\nPhone: ${form.phone}\nAge: ${form.age}\nGender: ${form.gender}\nScan: ${form.scan}`
     );
     window.open(`https://wa.me/917488738051?text=${msg}`, "_blank");
-    setSubmitted(true);
+    setForm({ name: "", phone: "", age: "", gender: "", scan: SCAN_TYPES[0] });
   };
 
   return (
@@ -51,15 +71,20 @@ function Home() {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Activity className="h-5 w-5" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold">Apex CT Scan</div>
-              <div className="text-xs text-muted-foreground">& Maternity Centre</div>
-            </div>
-          </a>
+          <div className="flex items-center gap-3">
+            <Link to="/admin" className="flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+              <Lock className="h-3.5 w-3.5" /> Admin
+            </Link>
+            <a href="#top" className="flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Activity className="h-5 w-5" />
+              </div>
+              <div className="leading-tight">
+                <div className="text-sm font-semibold">Apex CT Scan</div>
+                <div className="text-xs text-muted-foreground">& Maternity Centre</div>
+              </div>
+            </a>
+          </div>
           <nav className="hidden gap-7 text-sm text-muted-foreground md:flex">
             <a href="#services" className="hover:text-foreground">Services</a>
             <a href="#doctors" className="hover:text-foreground">Doctors</a>
@@ -135,7 +160,21 @@ function Home() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: Scan, title: "96 Slice CT Scan", desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis." },
+            {
+              icon: Scan,
+              title: "96 Slice CT Scan",
+              desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis.",
+              items: [
+                "CT Brain Plain (Contrast)",
+                "CT Whole Abdomen",
+                "CT Lower Abdomen",
+                "CT Upper Abdomen",
+                "HRCT Thorax",
+                "CT Urography",
+                "CT KUB",
+                "Any Special CT Scan",
+              ],
+            },
             { icon: Activity, title: "3D / 4D Ultrasound", desc: "Detailed real-time imaging including obstetric and abdominal studies." },
             { icon: Activity, title: "Colour Doppler", desc: "Vascular and cardiac flow studies for accurate evaluation." },
             { icon: Scan, title: "Digital X-Ray", desc: "Low-dose digital X-ray with instant, high-clarity reports." },
@@ -148,6 +187,15 @@ function Home() {
               </div>
               <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+              {s.items && (
+                <ul className="mt-4 space-y-1.5 text-sm">
+                  {s.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-foreground/80">
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
