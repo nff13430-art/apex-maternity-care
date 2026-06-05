@@ -71,15 +71,20 @@ function Home() {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Activity className="h-5 w-5" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold">Apex CT Scan</div>
-              <div className="text-xs text-muted-foreground">& Maternity Centre</div>
-            </div>
-          </a>
+          <div className="flex items-center gap-3">
+            <Link to="/admin" className="flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+              <Lock className="h-3.5 w-3.5" /> Admin
+            </Link>
+            <a href="#top" className="flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Activity className="h-5 w-5" />
+              </div>
+              <div className="leading-tight">
+                <div className="text-sm font-semibold">Apex CT Scan</div>
+                <div className="text-xs text-muted-foreground">& Maternity Centre</div>
+              </div>
+            </a>
+          </div>
           <nav className="hidden gap-7 text-sm text-muted-foreground md:flex">
             <a href="#services" className="hover:text-foreground">Services</a>
             <a href="#doctors" className="hover:text-foreground">Doctors</a>
