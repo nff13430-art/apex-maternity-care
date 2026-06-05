@@ -77,18 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Apex Maternity Care provides a professional online presence for maternity and CT scan services." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Apex Maternity Care provides a professional online presence for maternity and CT scan services." },
+      { title: "Apex CT Scan & Maternity Centre — Katihar, Bihar" },
+      { name: "description", content: "Apex CT Scan & Maternity Centre in Katihar — 96 Slice CT Scan, 3D/4D Ultrasound, Colour Doppler, Digital X-Ray & Maternity care." },
+      { property: "og:title", content: "Apex CT Scan & Maternity Centre — Katihar" },
+      { property: "og:description", content: "Advanced diagnostics and trusted maternity care in Katihar, Bihar." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Apex Maternity Care provides a professional online presence for maternity and CT scan services." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a6594a81-09c8-43bd-a940-045d7da815ad/id-preview-8abb542f--0ab15c84-743c-4e63-ae75-53ce7746d594.lovable.app-1780548156458.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a6594a81-09c8-43bd-a940-045d7da815ad/id-preview-8abb542f--0ab15c84-743c-4e63-ae75-53ce7746d594.lovable.app-1780548156458.png" },
     ],
     links: [
       {
