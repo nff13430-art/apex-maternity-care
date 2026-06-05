@@ -191,29 +191,30 @@ function Home() {
               <ShieldCheck className="h-3.5 w-3.5" /> About the Centre
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
-              Modern diagnostics, trusted maternity care — right here in Katihar
+              Advanced Diagnostics & Compassionate Maternity Care — Trusted by Families Across Katihar
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              APEX CT Scan & Maternity Centre, a unit of Apex Radio-Diagnostic Centre, is one of
-              Katihar's most trusted destinations for advanced medical imaging and dedicated
-              maternity services. Built around the belief that quality healthcare should be
-              accessible, accurate and compassionate, our centre brings together state-of-the-art
-              technology and a team of experienced doctors under one roof.
+              Established as a premier unit of Apex Radio-Diagnostic Centre, <strong>APEX CT Scan & Maternity Centre</strong> stands as one of the most reliable healthcare destinations in Katihar, Bihar. Our centre was founded with a clear mission — to bring world-class diagnostic imaging and complete maternity care within reach of every family in the region, without the need to travel to larger cities.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              From our AI-enabled 96 Slice CT Scanner and 3D/4D Ultrasound to Colour Doppler,
-              Digital X-Ray and complete antenatal, delivery and postnatal care — every service
-              is delivered with precision, hygiene and warmth. Hundreds of families across Katihar
-              and the surrounding region trust us with their health every month, and we are proud
-              to walk that journey with each one of them.
+              We combine cutting-edge medical technology with a deeply patient-first philosophy. Our facility is equipped with an <strong>AI-enabled 96 Slice CT Scanner</strong> that delivers exceptionally detailed cross-sectional images in minutes, enabling rapid and accurate diagnosis for a wide range of conditions. Our <strong>3D/4D Ultrasound</strong> systems offer expecting parents a remarkable window into their baby's development, while our <strong>Colour Doppler</strong> and <strong>Digital X-Ray</strong> services ensure comprehensive vascular and skeletal evaluation under one roof.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Our maternity wing is designed to provide safe, comfortable and personalised care at every stage — from early antenatal check-ups and advanced foetal monitoring to labour, delivery and postnatal recovery. Led by experienced obstetricians and supported by trained nursing staff, we prioritise both the mother's wellbeing and the baby's health with utmost dedication.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Every patient who walks through our doors is treated with respect, transparency and warmth. We maintain stringent hygiene protocols, offer same-day reporting for most investigations, and keep our services affordably priced so that quality healthcare is never out of reach. It is this commitment to excellence that has earned us the trust of hundreds of families across Katihar and neighbouring districts.
             </p>
             <ul className="mt-7 grid gap-3 text-sm">
               {[
                 "AI-enabled 96 Slice CT Scanner for fast, precise diagnosis",
-                "In-house obstetrics and radiology specialists",
-                "Clean, comfortable and modern facility",
-                "Same-day reports and home delivery options",
-                "Affordable pricing with no compromise on quality",
+                "3D/4D Ultrasound with advanced foetal imaging capabilities",
+                "Complete maternity care — antenatal, delivery & postnatal",
+                "In-house experienced radiologists and obstetricians",
+                "Same-day digital reports with home delivery facility",
+                "Strict infection control, hygienic and patient-friendly environment",
+                "Affordable, transparent pricing with no hidden charges",
+                "Trusted by families across Katihar and surrounding districts",
               ].map((p) => (
                 <li key={p} className="flex items-start gap-2 text-foreground/80">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {p}
