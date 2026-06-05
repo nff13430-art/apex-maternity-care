@@ -27,7 +27,14 @@ const PHONE_TEL = "+917488738051";
 const MAP_QUERY = encodeURIComponent("APEX CT SCAN & MATERNITY CENTRE, Old SBI Gali, MG Road, Katihar, Bihar 854105");
 
 const SCAN_TYPES = [
-  "96 Slice CT Scan",
+  "CT Brain Plain (Contrast)",
+  "CT Whole Abdomen",
+  "CT Lower Abdomen",
+  "CT Upper Abdomen",
+  "HRCT Thorax",
+  "CT Urography",
+  "CT KUB",
+  "Any Special CT Scan",
   "3D / 4D Ultrasound",
   "Colour Doppler",
   "Digital X-Ray",
