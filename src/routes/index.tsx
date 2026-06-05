@@ -160,7 +160,21 @@ function Home() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: Scan, title: "96 Slice CT Scan", desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis." },
+            {
+              icon: Scan,
+              title: "96 Slice CT Scan",
+              desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis.",
+              items: [
+                "CT Brain Plain (Contrast)",
+                "CT Whole Abdomen",
+                "CT Lower Abdomen",
+                "CT Upper Abdomen",
+                "HRCT Thorax",
+                "CT Urography",
+                "CT KUB",
+                "Any Special CT Scan",
+              ],
+            },
             { icon: Activity, title: "3D / 4D Ultrasound", desc: "Detailed real-time imaging including obstetric and abdominal studies." },
             { icon: Activity, title: "Colour Doppler", desc: "Vascular and cardiac flow studies for accurate evaluation." },
             { icon: Scan, title: "Digital X-Ray", desc: "Low-dose digital X-ray with instant, high-clarity reports." },
@@ -173,6 +187,15 @@ function Home() {
               </div>
               <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+              {s.items && (
+                <ul className="mt-4 space-y-1.5 text-sm">
+                  {s.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-foreground/80">
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
