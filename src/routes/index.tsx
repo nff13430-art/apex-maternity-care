@@ -45,13 +45,25 @@ function Home() {
   const [form, setForm] = useState({ name: "", phone: "", age: "", gender: "", scan: SCAN_TYPES[0] });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const { error } = await supabase.from("bookings").insert({
+      name: form.name,
+      phone: form.phone,
+      age: Number(form.age),
+      gender: form.gender,
+      scan: form.scan,
+    });
+    if (error) {
+      alert("Could not save booking. Please call us at " + PHONE);
+      return;
+    }
+    setSubmitted(true);
     const msg = encodeURIComponent(
       `Hello, I would like to book a scan.\n\nName: ${form.name}\nPhone: ${form.phone}\nAge: ${form.age}\nGender: ${form.gender}\nScan: ${form.scan}`
     );
     window.open(`https://wa.me/917488738051?text=${msg}`, "_blank");
-    setSubmitted(true);
+    setForm({ name: "", phone: "", age: "", gender: "", scan: SCAN_TYPES[0] });
   };
 
   return (
