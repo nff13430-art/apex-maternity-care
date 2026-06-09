@@ -126,7 +126,7 @@ function Home() {
             <img
               src={centreImg}
               alt="Apex CT Scan & Maternity Centre building exterior in Katihar"
-              className="w-full rounded-2xl border border-white/20 object-contain"
+              className="h-72 w-full rounded-2xl border border-white/20 object-cover md:h-96"
               style={{ boxShadow: "var(--shadow-soft)" }}
               loading="eager"
             />
