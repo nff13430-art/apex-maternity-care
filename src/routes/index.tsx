@@ -169,6 +169,7 @@ function Home() {
               icon: Scan,
               title: "96 Slice CT Scan",
               desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis.",
+              image: ctScannerAsset.url,
               items: [
                 "CT Brain Plain (Contrast)",
                 "CT Whole Abdomen",
@@ -180,27 +181,76 @@ function Home() {
                 "Any Special CT Scan",
               ],
             },
-            { icon: Activity, title: "3D / 4D Ultrasound", desc: "Detailed real-time imaging including obstetric and abdominal studies." },
-            { icon: Activity, title: "Colour Doppler", desc: "Vascular and cardiac flow studies for accurate evaluation." },
-            { icon: Scan, title: "Digital X-Ray", desc: "Low-dose digital X-ray with instant, high-clarity reports." },
-            { icon: Baby, title: "Maternity Care", desc: "Antenatal, delivery and postnatal care in a safe, modern facility." },
-            { icon: Stethoscope, title: "Expert Reporting", desc: "Timely, accurate reports reviewed by experienced consultants." },
+            {
+              icon: Activity,
+              title: "3D / 4D Ultrasound",
+              desc: "Detailed real-time imaging including obstetric and abdominal studies.",
+              image: ultrasoundAsset.url,
+              items: [
+                "Whole Abdomen",
+                "Lower Abdomen",
+                "Upper Abdomen",
+                "Level-2",
+                "Bio-Physical Profile",
+                "NT Scan",
+                "Cranium",
+              ],
+            },
+            {
+              icon: Activity,
+              title: "Colour Doppler",
+              desc: "Vascular and cardiac flow studies for accurate evaluation.",
+              items: [
+                "Arterial / Venous",
+                "USG Neck",
+                "Any Special USG",
+              ],
+            },
+            {
+              icon: Scan,
+              title: "Digital X-Ray",
+              desc: "Low-dose digital X-ray with instant, high-clarity reports.",
+              image: xrayAsset.url,
+              items: [
+                "Whole Body X-Ray",
+                "I.V.P, H.S.G., M.C.U",
+                "AUG (Urogram)",
+                "Sinogram, Barium Studies",
+              ],
+            },
+            {
+              icon: Baby,
+              title: "Maternity Care",
+              desc: "Antenatal, delivery and postnatal care in a safe, modern facility.",
+              image: maternityAsset.url,
+            },
+            {
+              icon: Stethoscope,
+              title: "Expert Reporting",
+              desc: "Timely, accurate reports reviewed by experienced consultants.",
+              image: waitingAsset.url,
+            },
           ].map((s) => (
-            <div key={s.title} className="group rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-secondary text-primary">
-                <s.icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
-              {s.items && (
-                <ul className="mt-4 space-y-1.5 text-sm">
-                  {s.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-foreground/80">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {item}
-                    </li>
-                  ))}
-                </ul>
+            <div key={s.title} className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-md">
+              {s.image && (
+                <img src={s.image} alt={s.title} className="h-44 w-full object-cover" loading="lazy" />
               )}
+              <div className="p-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-secondary text-primary">
+                  <s.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+                {s.items && (
+                  <ul className="mt-4 space-y-1.5 text-sm">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-foreground/80">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           ))}
         </div>
