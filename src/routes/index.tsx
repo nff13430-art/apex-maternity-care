@@ -126,7 +126,7 @@ function Home() {
             <img
               src={centreImg}
               alt="Apex CT Scan & Maternity Centre building exterior in Katihar"
-              className="w-full rounded-2xl border border-white/20 object-contain"
+              className="h-72 w-full rounded-2xl border border-white/20 object-cover md:h-96"
               style={{ boxShadow: "var(--shadow-soft)" }}
               loading="eager"
             />
@@ -233,8 +233,8 @@ function Home() {
           ].map((s) => (
             <div key={s.title} className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-md">
               {s.image && (
-                <div className="flex items-center justify-center bg-muted">
-                  <img src={s.image} alt={s.title} className="h-auto max-h-56 w-full object-contain" loading="lazy" />
+                <div className="h-44 w-full overflow-hidden md:h-56">
+                  <img src={s.image} alt={s.title} className="h-full w-full object-cover" loading="lazy" />
                 </div>
               )}
               <div className="p-6">
@@ -290,7 +290,7 @@ function Home() {
       {/* About */}
       <section id="about" className="mx-auto max-w-6xl px-4 py-24">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          <img src={centreImg} alt="Centre exterior" className="w-full rounded-2xl border border-border object-contain" />
+          <img src={centreImg} alt="Centre exterior" className="h-64 w-full rounded-2xl border border-border object-cover md:h-80" />
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-primary">
               <ShieldCheck className="h-3.5 w-3.5" /> About the Centre
