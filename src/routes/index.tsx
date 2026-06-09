@@ -229,6 +229,7 @@ function Home() {
               title: "Expert Reporting",
               desc: "Timely, accurate reports reviewed by experienced consultants.",
               image: waitingAsset.url,
+              note: "Ultrasound scan and X-ray are done at Apex Radio Diagnostics Center, Binodpur Katihar",
             },
           ].map((s) => (
             <div key={s.title} className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-md">
