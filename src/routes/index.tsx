@@ -290,7 +290,7 @@ function Home() {
       {/* About */}
       <section id="about" className="mx-auto max-w-6xl px-4 py-24">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          <img src={centreImg} alt="Centre exterior" className="rounded-2xl border border-border object-cover" />
+          <img src={centreImg} alt="Centre exterior" className="w-full rounded-2xl border border-border object-contain" />
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-primary">
               <ShieldCheck className="h-3.5 w-3.5" /> About the Centre
