@@ -233,8 +233,8 @@ function Home() {
           ].map((s) => (
             <div key={s.title} className="group overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-md">
               {s.image && (
-                <div className="flex items-center justify-center bg-muted">
-                  <img src={s.image} alt={s.title} className="h-auto max-h-56 w-full object-contain" loading="lazy" />
+                <div className="h-44 w-full overflow-hidden md:h-56">
+                  <img src={s.image} alt={s.title} className="h-full w-full object-cover" loading="lazy" />
                 </div>
               )}
               <div className="p-6">
