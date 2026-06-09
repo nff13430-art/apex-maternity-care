@@ -244,6 +244,9 @@ function Home() {
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+                {s.note && (
+                  <p className="mt-3 text-sm font-medium text-red-600">{s.note}</p>
+                )}
                 {s.items && (
                   <ul className="mt-4 space-y-1.5 text-sm">
                     {s.items.map((item) => (
