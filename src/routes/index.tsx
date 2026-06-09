@@ -1,6 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import centreImg from "@/assets/centre.jpg";
+import ctScannerAsset from "@/assets/ct-scanner.jpg.asset.json";
+import ultrasoundAsset from "@/assets/ultrasound.jpg.asset.json";
+import xrayAsset from "@/assets/xray.jpg.asset.json";
+import maternityAsset from "@/assets/maternity.jpg.asset.json";
+import waitingAsset from "@/assets/waiting.jpg.asset.json";
 import { Activity, Baby, Stethoscope, Scan, MapPin, Phone, Clock, Mail, ShieldCheck, CheckCircle2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
