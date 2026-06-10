@@ -10,7 +10,9 @@ const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
 const githubPagesBase = process.env.GITHUB_PAGES_BASE || "/";
 
 export default defineConfig({
-  base: isGitHubPagesBuild ? githubPagesBase : "/",
+  vite: {
+    base: isGitHubPagesBuild ? githubPagesBase : "/",
+  },
   nitro: isGitHubPagesBuild ? false : undefined,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
