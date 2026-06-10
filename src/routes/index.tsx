@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import centreImg from "@/assets/centre.jpg";
-import ctScannerAsset from "@/assets/ct-scanner.jpg.asset.json";
-import ultrasoundAsset from "@/assets/ultrasound.jpg.asset.json";
-import xrayAsset from "@/assets/xray.jpg.asset.json";
-import maternityAsset from "@/assets/maternity.jpg.asset.json";
-import waitingAsset from "@/assets/waiting.jpg.asset.json";
+import ctScannerImg from "@/assets/ct-scanner.jpg";
+import ultrasoundImg from "@/assets/ultrasound.jpg";
+import xrayImg from "@/assets/xray.jpg";
+import maternityImg from "@/assets/maternity.jpg";
+import waitingImg from "@/assets/waiting.jpg";
 import { Activity, Baby, Stethoscope, Scan, MapPin, Phone, Clock, Mail, ShieldCheck, CheckCircle2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -169,7 +169,7 @@ function Home() {
               icon: Scan,
               title: "96 Slice CT Scan",
               desc: "AI-enabled, high-resolution CT imaging for fast and precise diagnosis.",
-              image: ctScannerAsset.url,
+              image: ctScannerImg,
               items: [
                 "CT Brain Plain (Contrast)",
                 "CT Whole Abdomen",
@@ -185,7 +185,7 @@ function Home() {
               icon: Activity,
               title: "3D / 4D Ultrasound",
               desc: "Detailed real-time imaging including obstetric and abdominal studies.",
-              image: ultrasoundAsset.url,
+              image: ultrasoundImg,
               items: [
                 "Whole Abdomen",
                 "Lower Abdomen",
@@ -210,7 +210,7 @@ function Home() {
               icon: Scan,
               title: "Digital X-Ray",
               desc: "Low-dose digital X-ray with instant, high-clarity reports.",
-              image: xrayAsset.url,
+              image: xrayImg,
               items: [
                 "Whole Body X-Ray",
                 "I.V.P, H.S.G., M.C.U",
@@ -222,13 +222,13 @@ function Home() {
               icon: Baby,
               title: "Maternity Care",
               desc: "Antenatal, delivery and postnatal care in a safe, modern facility.",
-              image: maternityAsset.url,
+              image: maternityImg,
             },
             {
               icon: Stethoscope,
               title: "Expert Reporting",
               desc: "Timely, accurate reports reviewed by experienced consultants.",
-              image: waitingAsset.url,
+              image: waitingImg,
               note: "Ultrasound scan and X-ray are done at Apex Radio Diagnostics Center, Binodpur Katihar",
             },
           ].map((s) => (
